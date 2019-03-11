@@ -7,8 +7,8 @@ class Scraper
   def self.scrape_index_page(index_url)
     html = File.read('./fixtures/student-site/index.html')
     students = Nokogiri::HTML(html)
-    #The keys of the individual student hashes should be :name, :location     :profile_url 
-    
+    #The keys of the individual student hashes should be :name, :location     :profile_url
+
     people_hashed = []
 
     #students: students.css("div.roster-cards-container")
@@ -53,6 +53,5 @@ class Scraper
     profiles[:bio] = doc.css("div.details-container div.description-holder p").text
     profiles
   end
-  
-end
 
+end
